@@ -6,8 +6,9 @@ const todoReducer = (state, { actionType, payload }) => {
       return [...state, payload];
     case actions.COMPLETED: {
       let cloneState = [...state];
-      cloneState.find((todo) => todo.id == payload).isComplete = true;
-      console.log(cloneState);
+      let updateState = cloneState.find((todo) => todo.id == payload.id);
+      updateState.isComplete = true;
+      updateState.completedTime = payload.completedTime;
       return cloneState;
     }
     case actions.DELETE:

@@ -1,8 +1,9 @@
-import { Avatar, List, Typography } from "antd";
+import { Avatar, List } from "antd";
 import { CheckCircleOutlined, DeleteOutlined } from "@ant-design/icons";
 export default function RemainTask({ todos, handleComplete, handleDelete }) {
   return (
     <List
+      bordered
       header={<div className="text-xl">Remaining Task</div>}
       itemLayout="horizontal"
       dataSource={todos}
@@ -24,8 +25,8 @@ export default function RemainTask({ todos, handleComplete, handleDelete }) {
         >
           <List.Item.Meta
             avatar={<Avatar className="bg-blue-500">{todo.id[5]}</Avatar>}
+            title={todo.value}
           />
-          <Typography>{todo.value}</Typography>
         </List.Item>
       )}
     />
